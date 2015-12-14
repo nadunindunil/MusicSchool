@@ -9,8 +9,8 @@ app.config(function($routeProvider){
               templateUrl:'templates/home.html'
           }).
           when('/students', {
-              templateUrl: 'templates/students.html'
-
+              templateUrl: 'templates/students.html',
+              controller:'StudentsCtrl'
           }).
           when('/home', {
               templateUrl: 'templates/home.html'
