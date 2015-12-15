@@ -12,6 +12,10 @@ app.config(['$routeProvider', function($routeProvider){
               templateUrl: 'templates/students.html',
               controller:'StudentsCtrl'
           }).
+          when('/teachers', {
+              templateUrl: 'templates/teachers.html',
+              controller:'TeachersCtrl'
+          }).
           when('/home', {
               templateUrl: 'templates/home.html'
 

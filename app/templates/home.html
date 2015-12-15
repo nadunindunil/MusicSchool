@@ -1,1 +1,201 @@
-<p>this one is home</p>
+<div class="row">
+    <div class="col-lg-12" ng-controller="NotificationsCtrl" >
+        <h4 class="page-header"> Dashboard</h4>
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-users fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"> 150</div>
+                                <div>Students </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/members2">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green" ng-controller="QuizCtrl">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-question-circle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{QuizList.length}}</div>
+                                <div>Quizzes </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/quizzes">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-bell fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"> 14</div>
+                                <div>Notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/notifications">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red" >
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-calendar fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"> 3</div>
+                                <div>Classes</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/dues">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12" style="padding-left: 7px">
+                <div class="col-lg-4">
+                    <div class="panel panel-white" ng-controller="d1Ctrl">
+                        <div class="panel-heading"><i class="fa fa-question-circle"></i> Quizzes ({{QuizList.length}})
+
+                            <div class="btn-group pull-right">
+                                <a href="#/quizzes" style="color: #ffffff" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New Quiz</a>
+
+
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Top scorer</th>
+                                        <th>Top Score</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="repeated-item" data-ng-repeat="g in top | filter:query | orderBy:'_id'" >
+                                        <td>{{g.title}}</td>
+                                        <td>{{g.name}}</td>
+                                        <td> {{g.score}}</td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-white" ng-controller="courseCtrl">
+                        <div class="panel-heading">
+                            <i class="fa fa-calendar fa-fw"></i> Course Averages
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#/members/{{due.NIC}}" class="list-group-item" style="height: 1.5cm;" ng-repeat="due in c1">
+                                    <i class="fa fa-calendar fa-fw"></i> {{due.title}}
+                                    <span class="pull-right text-muted small"><em>{{due.avg}}</em>
+                                    </span>
+                                </a>
+
+
+                            </div>
+                            <!-- /.list-group -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="panel panel-white" ng-controller="QuizCtrl">
+                        <div class="panel-heading" >
+                            <i class="fa fa-bell fa-fw"></i> Quiz Summary
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Questions</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="repeated-item" data-ng-repeat="g in QuizList | filter:query | orderBy:'_id'" >
+                                        <td>{{g.Name}}</td>
+                                        <td>{{g.Questions.length}}</td>
+
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.list-group -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
