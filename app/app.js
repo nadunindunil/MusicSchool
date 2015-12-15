@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 var app = angular.module('myApp',['ngRoute','cgBusy','ngAnimate']);
 
-app.config(function($routeProvider){
+app.config(['$routeProvider', function($routeProvider){
       $routeProvider.
           when('/',{
               templateUrl:'templates/home.html'
@@ -20,4 +20,4 @@ app.config(function($routeProvider){
               redirectTo: '/home'
           });
 
-});
+}]);

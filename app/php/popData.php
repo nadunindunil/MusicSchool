@@ -5,28 +5,24 @@
     $pass = "";
     $db = "g19";
 
-    $con = new mysqli($host,$user,$pass,$db)
+    $con = new mysqli($host,$user,$pass,$db);
 
-    if ($con->connection_error){
-        die("DB connection failed" . $con->connection_error);
-
-
+    if ($con->connect_error) {
+         die("Connection failed: " . $con->connect_error);
     }
 
-    $sql = "select * from 'students'"
+    $return_arr = array();
 
-    $qry = $con->query($sql);
+        $fetch = $con->query("SELECT * FROM student");
 
-    $data = array();
+        while ($row = $fetch->fetch_assoc()) {
+            $row_array['ID'] = $row['ID'];
+            $row_array['name'] = $row['name'];
+            $row_array['dob'] = $row['DOB'];
 
-    if($qry->num_row > 0){
-        while($row = $qry->fetch_object()){
-            $data[] = $row;
+            array_push($return_arr,$row_array);
         }
-    }else{
-        $data[] = null;
-    }
 
     $con->close();
 
-    echo json_encode($data);
+    echo json_encode($return_arr);
