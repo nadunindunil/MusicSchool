@@ -133,9 +133,11 @@
                         <tr>
                             <th>NIC</th>
                             <th>Name</th>
-                            <th>Balance</th>
-                            <th>DueDate</th>
-                            <th>Area</th>
+                            <th>Gender</th>
+                            <th>DOB</th>
+                            <th>course ID</th>
+                            <th>performance group ID</th>
+                            <th>phone numbers</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -144,8 +146,10 @@
                             <td>{{student.ID}} V</td>
                             <td>{{student.name}}</td>
                             <td>{{student.gender}}</td>
-                            <td>{{student.dob }}</td>
-                            <td>{{student.course_id}}</td>
+                            <td>{{student.DOB }}</td>
+                            <td>{{student.course_ID}}</td>
+                            <td>{{student.performance_group_ID }}</td>
+                            <td>{{student.phone_number_id}}</td>
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
 
