@@ -14,7 +14,23 @@ app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$l
     })
         .error(function(err){
             $log.error(err);
-        })
+        });
+
+
+
+    $scope.findTelNums = function(ID){
+        var NumList;
+        $http.get('http://localhost:3000/findTelNum/'+ ID)
+            .success(function(data){
+                $scope.NumList = data;
+                NumList = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
+        return NumList;
+    }
 
 }]);
 
@@ -44,5 +60,26 @@ app.controller('CoursesCtrl',['$scope','$http','$log', function($scope,$http,$lo
         .error(function(err){
             $log.error(err);
         })
+
+}]);
+
+app.controller('TelNumCtrl',['$scope','$http','$log', function($scope,$http,$log){
+
+
+    $http.get('http://localhost:3000/getTelNumList')
+        .success(function(data){
+            $scope.TelNumbers = data;
+            console.log(data);
+        })
+        .error(function(err){
+            $log.error(err);
+        })
+
+}]);
+
+app.controller('TelNumCtrl',['$scope','$http','$log', function($scope,$http,$log){
+
+
+
 
 }]);
