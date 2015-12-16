@@ -23,7 +23,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel"> Add new Student</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" >
                             <form data-toggle="validator" role="form">
                                 <div class="row" style="padding-left: 15px;">
                                     <div class="col-lg-9 col-lg-offset-1 form">
@@ -31,18 +31,18 @@
                                             <label class="pull-left" style="padding-left: 1cm">ID :</label>
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="ID" type="text" placeholder="ID">
+                                                   style="width: 300px; height: 35px" data-ng-model="sID" type="text" placeholder="ID">
                                         </div>
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm">Name :</label>
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="name" type="text" placeholder="Name">
+                                                   style="width: 300px; height: 35px" data-ng-model="fullname" type="text" placeholder="Name">
                                         </div>
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm;">gender :</label>
 
-                                                <select class="form-control pull-right" data-ng-model="gender" style="width: 300px; height: 35px">
+                                                <select class="form-control pull-right" data-ng-model="sgender" style="width: 300px; height: 35px">
                                                     <option>MALE</option>
                                                     <option>FEMALE</option>
 
@@ -54,7 +54,7 @@
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm;">Access Level:</label>
 
-                                            <select class="form-control pull-right" data-ng-model="gender" style="width: 300px; height: 35px">
+                                            <select class="form-control pull-right" data-ng-model="accLevel" style="width: 300px; height: 35px">
                                                 <option>Admin</option>
                                                 <option>User</option>
 
@@ -69,25 +69,24 @@
 
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="DOB" type="date">
+                                                   style="width: 300px; height: 35px" data-ng-model="dob" type="date">
 
                                         </div>
 
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm">Course ID:</label>
 
-                                            <select data-ng-repeat="course in Courses" class="form-control pull-right" data-ng-model="gender" style="width: 300px; height: 35px">
-                                                <option> {{course.title}}</option>
+                                            <select data-ng-repeat="crs in Courses" class="form-control pull-right" data-ng-model="course" style="width: 300px; height: 35px">
+                                                <option> {{crs.course_ID}}</option>
                                                 <!--<option> dummycourse2</option>-->
 
                                             </select>
                                         </div>
-                                        <div class="row from-group" style="padding-bottom: 5px">
+                                        <div class="row from-group" style="padding-bottom: 5px" ng-controller="PerGrpCtrl">
                                             <label class="pull-left" style="padding-left: 1cm">Per.Group ID:</label>
 
-                                            <select class="form-control pull-right" data-ng-model="gender" style="width: 300px; height: 35px">
-                                                <option> dummy1</option>
-                                                <option> dummy2</option>
+                                            <select data-ng-repeat="grp in Groups" class="form-control pull-right" data-ng-model="perGroup" style="width: 300px; height: 35px">
+                                                <option> {{grp.group_ID}}</option>
 
                                             </select>
                                         </div>
@@ -96,7 +95,7 @@
                                             <label class="pull-left" style="padding-left: 1cm">Telephone:</label>
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="telephone" type="text"
+                                                   style="width: 300px; height: 35px" data-ng-model="telePhone" type="text"
                                                    placeholder="Telephone" minlength="10" data-minlength="6" maxlength="10">
 
                                         </div>
@@ -121,7 +120,7 @@
 
                                 <button type="button reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                                 <button class="btn btn-success btn-sm" type="button"
-                                        data-ng-disabled="!firstName || !lastName || !nic || !Balance || !DDate || !area  || !telephone"
+
                                         data-ng-click=" addStudent();" data-dismiss="modal"> Add Student</button>
                             </div>
                         </div>

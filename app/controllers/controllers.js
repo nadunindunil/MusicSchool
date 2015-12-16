@@ -5,7 +5,18 @@
 'use strict';
 
 app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$log){
+    var STDreset= function () {
+        $scope.sID = null;
+        $scope.fullname = null;
+        $scope.sgender = null;
+        $scope.accLevel= null;
+        $scope.dob = null;
+        $scope.course = null;
+        $scope.perGroup = null;
+        $scope.telePhone = null;
+        $scope.address = null;
 
+    };
 
     $http.get('http://localhost:3000/getStudentsList')
         .success(function(data){
@@ -30,7 +41,47 @@ app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$l
                 $log.error(err);
             });
         return NumList;
+    };
+
+
+
+
+    $scope.addStudent = function(){
+
+        var id = $scope.sID;
+        var gender = $scope.sgender;
+        var name = $scope.fullname;
+        var dob = $scope.dob;
+        var acclevel = $scope.accLevel;
+        var course = $scope.course;
+        var pergroup = $scope.perGroup;
+        var tel = $scope.telePhone;
+        var add = $scope.address;
+
+        $http.post('http://localhost:3000/insertTelNum',{
+            ID: id,
+            location: add,
+            phone_number: tel
+
+        });
+
+
+        $http.post('http://localhost:3000/insertStudent',{
+            ID: id,
+            name: name,
+            gender: gender,
+            DOB: dob,
+            access_level: acclevel,
+            courseID: course,
+            performance_group_ID:pergroup,
+            phone_number_id:id
+
+        });
+
+        //STDreset();
+
     }
+
 
 }]);
 
@@ -77,9 +128,18 @@ app.controller('TelNumCtrl',['$scope','$http','$log', function($scope,$http,$log
 
 }]);
 
-app.controller('TelNumCtrl',['$scope','$http','$log', function($scope,$http,$log){
+
+app.controller('PerGrpCtrl',['$scope','$http','$log', function($scope,$http,$log){
 
 
-
+    $http.get('http://localhost:3000/getPerfGrpsList')
+        .success(function(data){
+            $scope.Groups = data;
+            console.log(data);
+        })
+        .error(function(err){
+            $log.error(err);
+        })
 
 }]);
+
