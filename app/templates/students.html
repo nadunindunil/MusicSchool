@@ -16,7 +16,7 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="CoursesCtrl">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -76,9 +76,9 @@
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm">Course ID:</label>
 
-                                            <select class="form-control pull-right" data-ng-model="gender" style="width: 300px; height: 35px">
-                                                <option> dummycourse1</option>
-                                                <option> dummycourse2</option>
+                                            <select data-ng-repeat="course in Courses" class="form-control pull-right" data-ng-model="gender" style="width: 300px; height: 35px">
+                                                <option> {{course.title}}</option>
+                                                <!--<option> dummycourse2</option>-->
 
                                             </select>
                                         </div>
