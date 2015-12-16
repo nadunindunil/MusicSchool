@@ -1,7 +1,11 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app = angular.module('myApp',['ngRoute','cgBusy','ngAnimate']);
+var app = angular.module('myApp',[
+    'ngRoute',
+    'cgBusy',
+    'ngAnimate'
+]);
 
 app.config(['$routeProvider', function($routeProvider){
       $routeProvider.

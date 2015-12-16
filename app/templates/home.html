@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12" ng-controller="NotificationsCtrl" >
+    <div class="col-lg-12" >
         <h4 class="page-header"> Dashboard</h4>
 
         <!-- /.row -->
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#/members2">
+                    <a href="#/students">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -27,19 +27,19 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green" ng-controller="QuizCtrl">
+                <div class="panel panel-green">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-2 col-xs-offset-1">
                                 <i class="fa fa-question-circle fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">{{QuizList.length}}</div>
-                                <div>Quizzes </div>
+                                <div class="huge"> 11</div>
+                                <div>Teachers </div>
                             </div>
                         </div>
                     </div>
-                    <a href="#/quizzes">
+                    <a href="#/teachers">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -100,11 +100,11 @@
         <div class="row">
             <div class="col-lg-12" style="padding-left: 7px">
                 <div class="col-lg-4">
-                    <div class="panel panel-white" ng-controller="d1Ctrl">
-                        <div class="panel-heading"><i class="fa fa-question-circle"></i> Quizzes ({{QuizList.length}})
+                    <div class="panel panel-white">
+                        <div class="panel-heading"><i class="fa fa-question-circle"></i> Teachers ({{QuizList.length}})
 
                             <div class="btn-group pull-right">
-                                <a href="#/quizzes" style="color: #ffffff" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New Quiz</a>
+                                <a href="#/teachers" style="color: #ffffff" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New Quiz</a>
 
 
                             </div>
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="panel panel-white" ng-controller="courseCtrl">
+                    <div class="panel panel-white">
                         <div class="panel-heading">
                             <i class="fa fa-calendar fa-fw"></i> Course Averages
 
@@ -160,7 +160,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="panel panel-white" ng-controller="QuizCtrl">
+                    <div class="panel panel-white" >
                         <div class="panel-heading" >
                             <i class="fa fa-bell fa-fw"></i> Quiz Summary
 
