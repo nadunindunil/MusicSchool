@@ -5,18 +5,23 @@
 'use strict';
 
 app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$log){
-    var STDreset= function () {
-        $scope.sID = null;
-        $scope.fullname = null;
-        $scope.sgender = null;
-        $scope.accLevel= null;
-        $scope.dob = null;
-        $scope.course = null;
-        $scope.perGroup = null;
-        $scope.telePhone = null;
-        $scope.address = null;
+    $http.get('http://localhost:3000/getCoursesList')
+        .success(function(data){
+            $scope.Courses = data;
+            console.log(data);
+        })
+        .error(function(err){
+            $log.error(err);
+        });
 
-    };
+    $http.get('http://localhost:3000/getPerfGrpsList')
+        .success(function(data){
+            $scope.Groups = data;
+            console.log(data);
+        })
+        .error(function(err){
+            $log.error(err);
+        });
 
     $http.get('http://localhost:3000/getStudentsList')
         .success(function(data){
@@ -58,12 +63,14 @@ app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$l
         var tel = $scope.telePhone;
         var add = $scope.address;
 
-        $http.post('http://localhost:3000/insertTelNum',{
-            ID: id,
-            location: add,
-            phone_number: tel
+        console.log(id,gender,name,dob,pergroup,course  );
 
-        });
+        //$http.post('http://localhost:3000/insertTelNum',{
+        //    ID: id,
+        //    location: add,
+        //    phone_number: tel
+        //
+        //});
 
 
         $http.post('http://localhost:3000/insertStudent',{
@@ -74,7 +81,9 @@ app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$l
             access_level: acclevel,
             courseID: course,
             performance_group_ID:pergroup,
-            phone_number_id:id
+            phone_number_id:id,
+            location: add,
+            phone_number: tel
 
         });
 

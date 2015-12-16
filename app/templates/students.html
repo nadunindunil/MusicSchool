@@ -16,7 +16,7 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="CoursesCtrl">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -76,17 +76,19 @@
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm">Course ID:</label>
 
-                                            <select data-ng-repeat="crs in Courses" class="form-control pull-right" data-ng-model="course" style="width: 300px; height: 35px">
-                                                <option> {{crs.course_ID}}</option>
+                                            <select  class="form-control pull-right" data-ng-model="course" style="width: 300px; height: 35px">
+                                                <option data-ng-repeat="crs in Courses" value="{{crs.course_ID}}"> {{crs.title}}</option>
                                                 <!--<option> dummycourse2</option>-->
 
                                             </select>
+
+
                                         </div>
-                                        <div class="row from-group" style="padding-bottom: 5px" ng-controller="PerGrpCtrl">
+                                        <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm">Per.Group ID:</label>
 
-                                            <select data-ng-repeat="grp in Groups" class="form-control pull-right" data-ng-model="perGroup" style="width: 300px; height: 35px">
-                                                <option> {{grp.group_ID}}</option>
+                                            <select class="form-control pull-right" data-ng-model="perGroup" style="width: 300px; height: 35px">
+                                                <option data-ng-repeat="grp in Groups" value="{{grp.group_ID}}"> {{grp.group_ID}}</option>
 
                                             </select>
                                         </div>
@@ -155,7 +157,7 @@
                         </thead>
                         <tbody>
                         <tr class="repeat-animation" data-ng-repeat="student in Students track by $index">
-                            <td>{{student.ID}} V</td>
+                            <td>{{student.ID}}</td>
                             <td>{{student.name}}</td>
                             <td>{{student.gender}}</td>
                             <td>{{student.DOB }}</td>
