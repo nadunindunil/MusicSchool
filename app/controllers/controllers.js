@@ -34,13 +34,14 @@ app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$l
 
 
 
+
     $scope.findTelNums = function(ID){
         var NumList;
         $http.get('http://localhost:3000/findTelNum/'+ ID)
             .success(function(data){
                 $scope.NumList = data;
                 NumList = data;
-                console.log(data);
+                console.log('test1');
             })
             .error(function(err){
                 $log.error(err);
@@ -48,6 +49,7 @@ app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$l
         return NumList;
     };
 
+    $scope.nums = null;
 
 
 
@@ -105,8 +107,37 @@ app.controller('TeachersCtrl',['$scope','$http','$log', function($scope,$http,$l
         })
         .error(function(err){
             $log.error(err);
-        })
+        });
 
+    $scope.addTeacher = function(){
+
+        var id = $scope.tID;
+        var gender = $scope.tgender;
+        var name = $scope.name;
+        var dob = $scope.dob;
+        var nic = $scope.nic;
+        var acclevel = $scope.accLevel;
+        var tel = $scope.telephone;
+        var add = $scope.address;
+
+        console.log(id,gender,name,dob);
+
+        $http.post('http://localhost:3000/insertTeacher',{
+            ID: id,
+            name: name,
+            gender: gender,
+            DOB: dob,
+            nic:nic,
+            access_level: acclevel,
+            phone_number_id:id,
+            location: add,
+            phone_number: tel
+
+        });
+
+        //STDreset();
+
+    }
 }]);
 
 app.controller('CoursesCtrl',['$scope','$http','$log', function($scope,$http,$log){

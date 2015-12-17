@@ -12,7 +12,7 @@
 
             <!-- Button trigger modal -->
             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
-                New Student
+                New Teacher
             </button>
 
             <!-- Modal -->
@@ -28,55 +28,64 @@
                                 <div class="row" style="padding-left: 15px;">
                                     <div class="col-lg-9 col-lg-offset-1 form">
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">First Name:</label>
+                                            <label class="pull-left" style="padding-left: 1cm">ID:</label>
 
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="firstName" type="text" placeholder="First Name">
+                                            <input class="form-control pull-right" minlength="7" data-minlength="6" maxlength="7"
+                                                   style="width: 300px; height: 35px" data-ng-model="tID" type="text" placeholder="ID">
                                         </div>
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Last Name:</label>
+                                            <label class="pull-left" style="padding-left: 1cm">Name:</label>
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="lastName" type="text" placeholder="Last Name">
+                                                   style="width: 300px; height: 35px" data-ng-model="name" type="text" placeholder="Full Name">
                                         </div>
+
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">NIC:</label>
+                                            <label class="pull-left" style="padding-left: 1cm">NIC :</label>
 
-                                            <div class="from-group input-group" style="padding-left: 1.7cm">
-
-                                                <input class="form-control pull-right"
-                                                       style="width: 267px; height: 35px" data-ng-model="nic" type="number" maxlength="9" placeholder="NIC">
-                                                <span class="input-group-addon">   V</span>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Loan :</label>
-
-                                            <div class="from-group input-group" style="padding-left: 2.1cm">
-                                                <span class="input-group-addon">Rs.</span>
-                                                <input class="form-control"
-                                                       style=" height: 35px " data-ng-model="Balance" maxlength="9" type="number" placeholder="Balance" readonly>
-                                                <span class="input-group-addon">.00</span>
-
-                                            </div>
+                                            <input class="form-control pull-right" minlength="10" data-minlength="6" maxlength="10"
+                                                   style="width: 300px; height: 35px" data-ng-model="nic" type="text" placeholder="NIC">
                                         </div>
 
 
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Due Date:</label>
+                                            <label class="pull-left" style="padding-left: 1cm;">gender :</label>
+
+                                            <select class="form-control pull-right" data-ng-model="tgender" style="width: 300px; height: 35px">
+                                                <option>MALE</option>
+                                                <option>FEMALE</option>
+
+                                            </select>
+
+
+                                        </div>
+
+                                        <div class="row from-group" style="padding-bottom: 5px">
+                                            <label class="pull-left" style="padding-left: 1cm;">Access Level:</label>
+
+                                            <select class="form-control pull-right" data-ng-model="accLevel" style="width: 300px; height: 35px">
+                                                <option>Admin</option>
+                                                <option>User</option>
+
+                                            </select>
+
+
+                                        </div>
+
+
+                                        <div class="row from-group" style="padding-bottom: 5px">
+                                            <label class="pull-left" style="padding-left: 1cm">DOB:</label>
 
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="DDate" type="date">
+                                                   style="width: 300px; height: 35px" data-ng-model="dob" type="date">
 
                                         </div>
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Area:</label>
+                                            <label class="pull-left" style="padding-left: 1cm">Address:</label>
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="area" type="text" placeholder="Area" readonly>
+                                                   style="width: 300px; height: 35px" data-ng-model="address" type="text" placeholder="Address">
                                         </div>
 
                                         <div class="row from-group" style="padding-bottom: 5px" >
@@ -88,12 +97,7 @@
 
                                         </div>
 
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Address:</label>
 
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="address" type="text" placeholder="Address">
-                                        </div>
 
 
 
@@ -108,8 +112,8 @@
 
                                 <button type="button reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                                 <button class="btn btn-success btn-sm" type="button"
-                                        data-ng-disabled="!firstName || !lastName || !nic || !Balance || !DDate || !area  || !telephone"
-                                        data-ng-click=" addMember();" data-dismiss="modal"> Add Member</button>
+                                        data-ng-disabled="!tID || !name || !nic "
+                                        data-ng-click=" addTeacher();" data-dismiss="modal"> Add Teacher</button>
                             </div>
                         </div>
                     </div>
@@ -119,10 +123,10 @@
             </div>
         </div>
 
-        <div class="panel panel-white" ng-controller="StudentsCtrl">
+        <div class="panel panel-white">
             <div class="panel-heading clearfix">
 
-                <div class="pull-left"> Registered Members ({{Teachers.length}})</div>
+                <div class="pull-left"> Registered Teachers ({{Teachers.length}})</div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 25px;font-family:Arial, FontAwesome">
 
             </div>
@@ -136,18 +140,18 @@
                             <th>Gender</th>
                             <th>DOB</th>
                             <th>NIC</th>
-                            <th>phone numbers</th>
+                            <!--<th>phone numbers</th>-->
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr class="repeat-animation" data-ng-repeat="teacher in Teachers track by $index">
-                            <td>{{teacher.teacher_ID}} V</td>
+                            <td>{{teacher.teacher_ID}}</td>
                             <td>{{teacher.name}}</td>
                             <td>{{teacher.gender}}</td>
                             <td>{{teacher.DOB }}</td>
                             <td>{{teacher.NID }}</td>
-                            <td>{{teacher.phone_number_id}}</td>
+                            <!--<td>{{teacher.phone_number_id}}</td>-->
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
 

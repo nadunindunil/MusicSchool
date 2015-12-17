@@ -24,6 +24,10 @@ app.config(['$routeProvider', function($routeProvider){
               templateUrl: 'templates/home.html'
 
           }).
+          when('/courses', {
+              templateUrl: 'templates/courses.html'
+
+          }).
           otherwise({
               redirectTo: '/home'
           });
