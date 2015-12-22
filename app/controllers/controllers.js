@@ -4,7 +4,9 @@
 
 'use strict';
 
-app.controller('StudentsCtrl',['$scope','$http','$log', function($scope,$http,$log){
+app.controller('StudentsCtrl',['$scope','$http','$rootScope','$log', function($scope,$http,$log,$rootScope){
+
+    $rootScope.pageName = "Students";
     $http.get('http://localhost:3000/getCoursesList')
         .success(function(data){
             $scope.Courses = data;
@@ -153,6 +155,9 @@ app.controller('CoursesCtrl',['$scope','$http','$log', function($scope,$http,$lo
         })
 
 }]);
+
+
+
 
 app.controller('TelNumCtrl',['$scope','$http','$log', function($scope,$http,$log){
 
